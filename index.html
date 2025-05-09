@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+        }
+        
+        .pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .editor {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            resize: none;
+            flex: 1;
+        }
+        
+        .preview {
+            border: 1px solid #ccc;
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+            background: white;
+        }
+        
+        .toolbar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown Editor</h1>
+    <div class="container">
+        <div class="pane">
+            <h2>Editor</h2>
+            <textarea id="editor" class="editor" placeholder="Type your markdown here..."></textarea>
+        </div>
+        <div class="pane">
+            <div class="toolbar">
+                <button id="copyBtn">Copy</button>
+                <button id="exportBtn">Export PDF</button>
+            </div>
+            <h2>Preview</h2>
+            <div id="preview" class="preview markdown-body"></div>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
